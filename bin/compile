@@ -50,4 +50,7 @@ popd
 
 rm -rf $WORK_DIR
 
+# Add to path so we can run Tippecanoe
+export PATH="/app/bin:$PATH"
+
 step "Tippecanoe installation done."
