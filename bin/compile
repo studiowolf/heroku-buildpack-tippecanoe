@@ -36,7 +36,7 @@ step "Compiling binaries"
 
 pushd $WORK_DIR
 
-make -j > /dev/null
+make -j2 > /dev/null #-j2, max 2 processes
 
 step "Installing binaries to vendor"
 
