@@ -48,9 +48,15 @@ make install PREFIX=$BUILD_DIR MANDIR=$WORK_DIR > /dev/null
 
 popd
 
-rm -rf $WORK_DIR
+# Add to $PATH so we can run tippecanoe
+PROFILE_PATH="$BUILD_DIR/.profile.d/tippecanoe.sh"
+mkdir -p "$(dirname "$PROFILE_PATH")"
 
-# Add to path so we can run Tippecanoe
-export PATH="/app/bin:$PATH"
+{
+  echo 'export PATH="/app/bin:$PATH"'
+} >> "$PROFILE_PATH"
+
+
+rm -rf $WORK_DIR
 
 step "Tippecanoe installation done."
